@@ -3,25 +3,37 @@ let iNeedDebugger = true;
 let rowFirstFreePlace = [6,6,6,6,6,6,6];
 let lastPossibleRound = "";
 let lastPossibleCol = "";
+let jueganRojas = true;
 
 try{	
 const jugar = () => {	
 	setVisibilityUI("prompt-container","hidden");
 	setVisibilityUI("tablero-container","visible");
-	setVisibilityUI("btcerrar","visible");	
-		arrowBlinkMove= setInterval(arrowBlink, 1000);
-		
+	setVisibilityUI("btcerrar","visible");
+
+	if(jueganRojas){		
+		document.querySelector(".img-ficha-container").classList.add("round-Used", "round-Red");
+		document.querySelector(".img-ficha-container").classList.remove("round-Yellow");		
+	}else{
+		document.querySelector(".img-ficha-container").classList.remove("round-Red");
+		document.querySelector(".img-ficha-container").classList.add("round-Used","round-Yellow");		
+	};	
+		arrowBlinkMove= setInterval(arrowBlink, 1000);		
 		const rounds = document.querySelectorAll('.bt');
-		rounds.forEach(element => {				
-			
+		rounds.forEach(element => {							
 			element.addEventListener('mouseover',function (e) {		
 				//debugger;								
 				if(document.querySelector(".col-selected")){					
 					document.querySelector(".col-selected").classList.add("bt");
 					document.querySelector(".col-selected").classList.remove("col-selected");
-				}				
+				}e			
 				if(document.querySelector(".round-PossiblePos")){
-					document.querySelector(".round-PossiblePos").classList.remove("round-PossiblePos");					
+
+					if(jueganRojas){
+						document.querySelector(".round-PossiblePos").classList.remove("round-PossiblePos", "round-Red");					
+					}else{
+						document.querySelector(".round-PossiblePos").classList.remove("round-PossiblePos", "round-Yellow");						
+					};									
 				}
 				showPossiblePos(this.id);
 				//this.classList.remove("bt");					
@@ -62,15 +74,36 @@ const jugar = () => {
 
 	const cols = document.querySelectorAll('.col');
 		cols.forEach(col => {	
+			let imgFichaClase = "";
 			col.addEventListener('mouseup',function (e) {	
 				document.getElementById(lastPossibleRound).classList.remove("round");
-				document.getElementById(lastPossibleRound).classList.add("round-Used");
+				//document.getElementById(lastPossibleRound).classList.add("round-Used");
+				//debugger; 
+				if(jueganRojas){
+					imgFichaClase = "round-Red";
+					document.getElementById(lastPossibleRound).classList.add("round-Used", );
+					document.querySelector(".img-ficha-container").classList.add("round-Used", imgFichaClase);
+					document.querySelector(".img-ficha-container").classList.remove("round-Yellow");
+					jueganRojas = false;
+				}else{
+					imgFichaClase = "round-Yellow";
+					document.querySelector(".img-ficha-container").classList.remove("round-Red");
+					document.querySelector(".img-ficha-container").classList.add(imgFichaClase);
+					document.getElementById(lastPossibleRound).classList.add("round-Used", imgFichaClase);
+					jueganRojas = true;
+				};
+
+				// for (i=0;i<=6;i++){
+				// 	document.getElementById(lastPossibleRound).classList.add("round-Used", imgFichaClase);
+				// }
 				// console.log("lastPossibleRound: " + lastPossibleRound + ": " +lastPossibleRound.substring(0,1));
 				rowFirstFreePlace[lastPossibleRound.substring(0,1)-1] = rowFirstFreePlace[lastPossibleRound.substring(0,1)-1]  - 1; 
-				//debugger;
+				
 				document.getElementById(lastPossibleCol).classList.remove("col-selected");
 				document.getElementById(lastPossibleCol).classList.add("bt");
 				document.getElementById(lastPossibleRound).classList.remove("round-PossiblePos");
+				console.log("id que lanza el evento: " + lastPossibleCol);
+				//showPossiblePos(lastPossibleCol);
 		});		
 	});	
 
@@ -86,9 +119,18 @@ const showPossiblePos = (selectedCol) => {
 
 	document.getElementById(selectedCol).classList.add("col-selected");
 	document.getElementById(selectedCol).classList.remove("bt");
-	document.getElementById(idFirstRoundFree).classList.add("round-PossiblePos");
-	console.log("Col: " + selectedCol + "-->Round Free: " + idFirstRoundFree);
-	console.log(rowFirstFreePlace);
+	//document.getElementById(idFirstRoundFree).classList.add("round-PossiblePos");
+	if(jueganRojas){
+		document.getElementById(idFirstRoundFree).classList.add("round-PossiblePos", "round-Red");
+		document.querySelector(".img-ficha-container").classList.add("round-Red");
+		document.querySelector(".img-ficha-container").classList.remove("round-Yellow");
+	}else{
+		document.querySelector(".img-ficha-container").classList.add("round-Yellow");
+		document.getElementById(idFirstRoundFree).classList.add("round-PossiblePos", "round-Yellow");
+		document.querySelector(".img-ficha-container").classList.remove("round-Red");
+	};
+	// console.log("Col: " + selectedCol + "-->Round Free: " + idFirstRoundFree);
+	// console.log(rowFirstFreePlace);
 	//document.querySelector(".round-PossiblePos").classList.add("round-PossiblePos");	
 }
 let fArrowBlink ="";
