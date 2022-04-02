@@ -125,19 +125,28 @@ button.bt button.col-selected{
   position: relative;
   width: 65px;
   height: 65px;
-  align-self: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 0; 
-  background-image: url("images/FichaAmarilla.png");
+  align-self: center;  
 	opacity: 0.4;  
   float: left;
   margin-top: 8px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50%;  
-  justify-content: center;
- 
+  justify-content: center; 
 }
+
+.round-Yellow{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 0; 
+  background-image: url("images/FichaAmarilla.png");
+}
+.round-Red{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 0; 
+  background-image: url("images/FichaRoja.png");
+}
+
 .round-Used{
   position: relative; 
   width: 65px;
@@ -147,15 +156,12 @@ button.bt button.col-selected{
   margin-top: 8px;
   border: 1px solid rgba(255,255,255,0.3);
   border-radius: 50%;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center 0; 
-  background-image: url("images/FichaAmarilla.png");
+  justify-content: center; 
   left: 0px;
 }
+
  .img-container{
-  top: -59px;
+  top: -31px;
   left: -29px;
   position: relative;  
   width: 30px;
@@ -166,7 +172,7 @@ button.bt button.col-selected{
 .img-ficha-container{
   position: relative;  
   left:20px;
-  top : -95px;
+  top : -110px;
 }
 
  .buttons-container{  
