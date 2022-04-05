@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<title>Conecta 4</title>
+<head>
+	<link rel="stylesheet" href="./index.css">    	
+	<script src="./index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap" rel="stylesheet">  	
+</head>
+<body>
+    
+    <div id="main-container">
+        <h1 id="H1Title">CONECTA 4</h1>
+        <button class="btcerrar" id="btcerrar" onclick="javascript:cerrar();">
+            <span id="cerrar" class="cerrar">X</span>
+        </button>
+        <button class="btrestart" id="btrestart" onclick="javascript:reiniciar();">
+            
+        </button>
+        <div id="prompt-container" class="prompt-container">   
+            <h3 class="prompt-title">BIENVENIDO<br></h3>              
+            <p id="prompt-obs" class="prompt-obs">Este juego consiste en hacer 4 en linea en cualquier dirección.</p>
+            <div class="inputs-container">
+                <p>Jugador 1: <input type="text" id="input-User1" class="input" value="Player 1"></p>
+                <p>Jugador 2:<input type="text" id="input-User2" class="input" value="Player 2"> </p>
+                <input type="radio" name="gameType" id="rd_GameType1" class="gameType" checked>                           
+                <label for="rd_GameType1" id ="PvsP" > Player1 vs Player2</label>               
+                <br>
+                <input type="radio" name="gameType" id="rd_GameType2" class="gameType PvsC">             
+                <label for="rd_GameType2" id ="PvsC"> Player1 vs CPU</label>
+                <br>
+                <input type="checkbox" id ="input_ModoSound" class="modoSound" name="input_ModoSound" checked>              
+                <label for="input_ModoSound" id ="label_ModoSound" class="modoSound"><span class="span-Sound"> Activar sonidos</span></label> 
+           
+            </div>
+            <div class="rdGameType">
+           
+            </div>
+             
+             
+            <button class="btStart" id="btStart" onclick="javascript:askForUserName();">JUGAR</button>
+            <button class="btJugar" id="btjugar" onclick="javascript:start();">JUGAR</button>                 
+        </div>   
+        <div id="bt-container" class="bt-content">
+            <button class="btvolver" id="btvolver" onclick="javascript:volver();"><span id="volver"class="span-btempezar">VOLVER</span></button> 
+            <button class="btsalir" id="btsalir" onclick="javascript:salir();"><span id="salir" class="salir">SALIR</span></button>
+        </div>             
+        <div id="tablero-container" class="tablero-container">  
+            <div class="tablero-Up">                
+                <div class="img-ficha-container"></div>
+                    <img src="images/arrow.png" class="img-container">                   
+                </div>               
+            <div class="tablero-grid">
+                <div id="col1" class="col" >   
+                    <button id="col1-bt" onclick="" onmouseover="" class="bt"> 
+                        <div id="11" class="round"></div>           
+                        <div id="12" class="round"></div>
+                        <div id="13" class="round"></div>
+                        <div id="14" class="round"></div>
+                        <div id="15" class="round"></div>
+                        <div id="16" class="round"></div>     
+                    </button>    
+                </div>   
+                <div  id="col2" class="col"> 
+                    <button id="col2-bt" onclick="" onmouseover="" class="bt">              
+                        <div id="21" class="round"></div>            
+                        <div id="22" class="round"></div>
+                        <div id="23" class="round"></div>
+                        <div id="24" class="round"></div>
+                        <div id="25" class="round"></div>
+                        <div id="26" class="round"></div>    
+                    </button>       
+                </div>  
+                <div id="col3" class="col">
+                    <button id="col3-bt" onclick="" onmouseover="" class="bt">   
+                        <div id="31" class="round"></div>            
+                        <div id="32" class="round"></div>
+                        <div id="33" class="round"></div>
+                        <div id="34" class="round"></div>
+                        <div id="35" class="round"></div>
+                        <div id="36" class="round"></div>
+                    </button>
+                </div>  
+                <div id="col4" class="col"> 
+                    <button id="col4-bt" onclick="" onmouseover="" class="bt">   
+                        <div id="41" class="round"></div>            
+                        <div id="42" class="round"></div>
+                        <div id="43" class="round"></div>
+                        <div id="44" class="round"></div>
+                        <div id="45" class="round"></div>
+                        <div id="46" class="round"></div>
+                    </button>
+                </div>  
+                <div id="col5" class="col">
+                    <button id="col5-bt" onclick="" onmouseover="" class="bt"> 
+                        <div id="51" class="round"></div>            
+                        <div id="52" class="round"></div>
+                        <div id="53" class="round"></div>
+                        <div id="54" class="round"></div>
+                        <div id="55" class="round"></div>
+                        <div id="56" class="round"></div>
+                    </button>
+                </div> 
+                <div id="col6" class="col">
+                    <button id="col6-bt" onclick="" onmouseover="" class="bt"> 
+                        <div id="61" class="round"></div>            
+                        <div id="62" class="round"></div>
+                        <div id="63" class="round"></div>
+                        <div id="64" class="round"></div>
+                        <div id="65" class="round"></div>
+                        <div id="66" class="round"></div>
+                    </button>
+                </div>  
+                <div id="col7" class="col">
+                    <button id="col7-bt" onclick="" onmouseover="" class="bt"> 
+                        <div id="71" class="round"></div>            
+                        <div id="72" class="round"></div>
+                        <div id="73" class="round"></div>
+                        <div id="74" class="round"></div>
+                        <div id="75" class="round"></div>
+                        <div id="76" class="round"></div>
+                    </button>
+                </div><br>
+                <p id="nextPlayer" class="nextPlayer"></p>
+            </div>
+            
+        </div> 
+        <div id="iconSound" class="iconSound-container">
+            <button onclick="changeSoundStatus();" class="bt-ChangeVolStatus"><span id="iconSoundDisabled" class="iconSoundDisabled">X</span><img src="images/sound.png"> </button>           
+    </div> 
+    </div>
+    <audio id="soundFicha" src="sounds/ficha.mp3" type="audio/mpeg"></audio>
+    <audio id="soundWin" src="sounds/win.mp3" type="audio/mpeg"></audio>        
+</body>
+</html>
